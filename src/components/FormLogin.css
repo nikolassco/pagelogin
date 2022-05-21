@@ -1,0 +1,25 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid #fff;
+  padding: 10px;
+  border-radius: 25px;
+  background-color: grey;
+}
+
+label {
+  padding: 5px;
+  margin: 5px;
+  height: 35px;
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0.548);
+  width: 15em;
+  margin: 5px;
+}
+
+.btn {
+  border-radius: 25px;
+}
