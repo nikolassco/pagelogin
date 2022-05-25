@@ -2,17 +2,7 @@ import "./FormLogin.css";
 
 import { useState } from 'react';
 
-const user = [
-  { id: 1, name: "Nikolas", password: "senhateste" },
-  { id: 2, name: "Teste", password: "senha" },
-];
-
-const access = [
-  { id: 1, status: "denied" },
-  { id: 2, status: "allowed" },
-];
-
-const FormLogin = () => {
+const FormLogin = ({ user, access }) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState(access[0].status);
@@ -27,13 +17,9 @@ const FormLogin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Enviou o form");
-    console.log(name, password);
     if ((name === user[0].name && password === user[0].password) || (name === user[1].name && password === user[1].password)) {
-      console.log("Certo");
       setToken(access[1].status);
     } else {
-      console.log("errou");
       alert("Usuário ou senha Inválidos");
     }
   }
@@ -41,22 +27,29 @@ const FormLogin = () => {
   return (
     <div>
       {token === "denied" &&
-        <form onSubmit={handleSubmit}>
-          <label>
-            <span>Nome:</span>
-            <input type="text" name="name" placeholder="Digite o seu nome" value={name} onChange={handleName} />
-          </label>
-          <label>
-            <span>Senha:</span>
-            <input type="password" name="password" placeholder="Digite a sua senha" value={password} onChange={handlePassword} />
-          </label>
-          <label>
-            <input type="submit" value="Entrar" className="btn" />
-          </label>
-        </form>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <label>
+              <span>Nome:</span>
+              <input type="text" name="name" placeholder="Digite o seu nome" value={name} onChange={handleName} />
+            </label>
+            <label>
+              <span>Senha:</span>
+              <input type="password" name="password" placeholder="Digite a sua senha" value={password} onChange={handlePassword} />
+            </label>
+            <label>
+              <input type="submit" value="Entrar" className="btn" />
+            </label>
+          </form>
+          <p>Nome: {user[1].name}</p>
+          <p>Senha: {user[1].password}</p>
+        </div>
       }
       {token === "allowed" &&
-        <h1>Acessou o Sistema</h1>
+        <div>
+          <h1>Acessou o Sistema</h1>
+          <p>Bem Vindo usuário {name}</p>
+        </div>
       }
     </div>
   )
