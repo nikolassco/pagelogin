@@ -1,6 +1,7 @@
 import "./FormLogin.css";
 
 import { useState } from 'react';
+import Logged from "./Logged";
 
 const FormLogin = ({ user, access }) => {
   const [name, setName] = useState("");
@@ -46,10 +47,7 @@ const FormLogin = ({ user, access }) => {
         </div>
       }
       {token === "allowed" &&
-        <div>
-          <h1>Acessou o Sistema</h1>
-          <p>Bem Vindo usuário {name}</p>
-        </div>
+        <Logged name={name} />
       }
     </div>
   )

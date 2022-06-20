@@ -1,5 +1,11 @@
 import './App.css';
-import FormLogin from './components/FormLogin';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Navbar from './components/Navbar';
+import FormLogin from './pages/FormLogin';
+import NotFound from './pages/NotFound';
+import Logged from './pages/Logged';
 
 const user = [
   { id: 1, name: "Nikolas", password: "senhateste" },
@@ -14,8 +20,14 @@ const access = [
 function App() {
   return (
     <div className="App">
-      <h2>Logar no Sistema</h2>
-      <FormLogin user={user} access={access} />
+      <Navbar />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<FormLogin user={user} access={access} />} />
+          <Route path="/logged" element={<Logged />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
