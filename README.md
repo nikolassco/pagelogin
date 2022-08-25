@@ -3,7 +3,7 @@
 
 # Sobre o projeto
 
-Página de login feita com react, utilizando hook useState para alterar dados do formulário
+Página de login feita com react, utilizando hook useState para alterar dados do formulário e react-router-dom para utilizar rotas.
 
 
 # Layout navegador
