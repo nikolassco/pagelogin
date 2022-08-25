@@ -7,8 +7,11 @@ Página de login feita com react, utilizando hook useState para alterar dados do
 
 
 # Layout navegador
-![Projeto](https://github.com/nikolassco/asset/blob/main/Page%20Login%20-%20Google%20Chrome%2025_05_2022%2001_12_42.png) 
+![Projeto](https://github.com/nikolassco/asset/blob/main/Page%20Login%20-%20Google%20Chrome%2025_08_2022%2019_02_23.png)
 
+![Projeto](https://github.com/nikolassco/asset/blob/main/Page%20Login%20-%20Google%20Chrome%2025_08_2022%2019_02_26.png)
+
+![Projeto](https://github.com/nikolassco/asset/blob/main/Page%20Login%20-%20Google%20Chrome%2025_08_2022%2019_03_10.png)
 
 # LINK DA PÁGINA
 https://page-login-nikolas.netlify.app/
