@@ -31,7 +31,7 @@ const FormLogin = ({ user, access }) => {
               <input type="password" name="password" placeholder="Digite a sua senha" value={password} onChange={(e) => setPassword(e.target.value)} className="input" required />
               <input type="submit" value="Entrar" className="btn-login" />
             </form>
-            <p>ou</p>
+            <u>ou</u>
             <Link to="/register" className="btn-register" >cadastrar</Link>
           </div>
           <h3 className="response">{response}</h3>

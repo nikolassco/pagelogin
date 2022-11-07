@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -17,11 +27,12 @@ form {
 }
 
 input {
+  width: 100%;
+  font-size: 1em;
   padding: 0.5em 2em;
   border-radius: 4px;
   border: 1px solid #bbb;
   background-color: transparent;
-  width: 90%;
 }
 
 .response {
@@ -31,27 +42,39 @@ input {
 }
 
 .form_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-height: 450px;
+  width: 500px;
+  max-width: 80vw;
   box-shadow: 0 0 1em #000;
   padding: 2em;
   border-radius: 4px;
 }
 
 .form_box h2 {
-  margin: 0;
+  font-size: 2em;
+  margin-bottom: 1em;
 }
 
 .btn-login,
 .btn-register {
-  text-transform: uppercase;
   text-decoration: none;
   color: #000;
-  padding: 0.5em 2em;
+  padding: 0.5em;
+  margin: 0.5em 0;
   border-radius: 4px;
   border: 1px solid #bbb;
   background-color: transparent;
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: bold;
   transition: 1s;
+}
+
+.btn-login::first-letter,
+.btn-register::first-letter {
+  text-transform: uppercase;
 }
 
 .btn-register {
@@ -60,7 +83,6 @@ input {
 }
 
 .btn-login {
-  font-size: 1.2em;
   background-color: #008CBA;
   color: #fff;
 }
@@ -72,3 +94,16 @@ input {
 }
 
 /* #ffffff #f6f7ef #ecefdf #e3e6ce #d9debe */
+
+
+@media (max-width: 56.25rem) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 37.5rem) {
+  :root {
+    font-size: 13px;
+  }
+}

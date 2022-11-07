@@ -20,7 +20,7 @@ const FormRegister = () => {
   }
 
   return (
-    <>
+    <div>
       <div className="form_box">
         <form onSubmit={handleSubmit}>
           <h2>Registrar</h2>
@@ -29,11 +29,11 @@ const FormRegister = () => {
           <input type="password" name="password" placeholder="Confirme a sua senha" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="input" required />
           <input type="submit" value="Cadastrar" className="btn-register" />
         </form>
-        <p>ou</p>
+        <u>ou</u>
         <Link to="/" className="btn-login" >entrar</Link>
       </div>
       <h3 className="response">{response}</h3>
-    </>
+    </div>
   )
 }
 
