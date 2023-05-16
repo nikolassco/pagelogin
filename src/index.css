@@ -80,11 +80,13 @@ input {
 .btn-register {
   background-color: #4CAF50;
   color: #fff;
+  cursor: pointer;
 }
 
 .btn-login {
   background-color: #008CBA;
   color: #fff;
+  cursor: pointer;
 }
 
 .btn-login:hover,

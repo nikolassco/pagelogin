@@ -1,45 +1,47 @@
 import { useState } from 'react';
-import Logged from "../logged/Logged";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const FormLogin = ({ user, access }) => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [token, setToken] = useState(access[0].status);
+const FormLogin = () => {
+  const navigate = useNavigate();
+  const [form, setForm] = useState({
+    name: '',
+    password: ''
+  });
   const [response, setResponse] = useState("");
+
+  const handleChangeForm = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if ((name === user[0].name && password === user[0].password) || (name === user[1].name && password === user[1].password)) {
-      setToken(access[1].status);
-    } else {
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (form.name !== user.name || form.password !== user.password) {
       setResponse("Usuario/senha inválido");
       setTimeout(() => {
         setResponse("");
       }, 2500);
+      return;
     }
+
+    navigate('/home');
   }
 
   return (
     <div>
-      {token === "denied" &&
-        <>
-          <div className="form_box">
-            <form onSubmit={handleSubmit} >
-              <h2>Entrar</h2>
-              <input type="text" name="name" placeholder="Digite o seu nome" value={name} onChange={(e) => setName(e.target.value)} className="input" required />
-              <input type="password" name="password" placeholder="Digite a sua senha" value={password} onChange={(e) => setPassword(e.target.value)} className="input" required />
-              <input type="submit" value="Entrar" className="btn-login" />
-            </form>
-            <u>ou</u>
-            <Link to="/register" className="btn-register" >cadastrar</Link>
-          </div>
-          <h3 className="response">{response}</h3>
-        </>
-      }
-      {token === "allowed" &&
-        <Logged name={name} />
-      }
+      <div className="form_box">
+        <form onSubmit={handleSubmit} >
+          <h2>Entrar</h2>
+          <input type="text" name="name" placeholder="Digite o seu nome" value={form.name} onChange={(e) => handleChangeForm(e)} className="input" required />
+          <input type="password" name="password" placeholder="Digite a sua senha" value={form.password} onChange={(e) => handleChangeForm(e)} className="input" required />
+          <input type="submit" value="Entrar" className="btn-login" />
+        </form>
+        <u>ou</u>
+        <Link to="/register" className="btn-register" >cadastrar</Link>
+      </div>
+      <h3 className="response">{response}</h3>
     </div>
   )
 }
