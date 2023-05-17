@@ -39,7 +39,7 @@ const FormRegister = () => {
           <input type="submit" value="Cadastrar" className="btn-register" />
         </form>
         <u>ou</u>
-        <Link to="/" className="btn-login" >entrar</Link>
+        <Link to="/login" className="btn-login" >entrar</Link>
       </div>
       <h3 className="response">{response}</h3>
     </div>

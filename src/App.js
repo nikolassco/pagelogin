@@ -9,8 +9,8 @@ import Home from './pages/Home';
 import FormRegister from './pages/FormRegister';
 
 const ProtectedRoutes = ({ redirectTo }) => {
-  const user = localStorage.getItem("user");
-  return user ? <Outlet /> : <Navigate to={redirectTo} />
+  const auth = localStorage.getItem("auth");
+  return auth ? <Outlet /> : <Navigate to={redirectTo} />
 }
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<ProtectedRoutes redirectTo={'/register'} />} >
-            <Route path="/" element={<Home />} />
+            <Route exact path="/" element={<Home />} />
           </Route>
           <Route path="/register" element={<FormRegister />} />
           <Route path="/login" element={<FormLogin />} />

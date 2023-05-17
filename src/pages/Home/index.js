@@ -5,7 +5,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const logout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('auth');
     navigate('/register');
   }
   return (
