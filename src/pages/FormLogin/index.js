@@ -18,6 +18,9 @@ const FormLogin = () => {
 
     const user = JSON.parse(localStorage.getItem("user"));
 
+    console.log(user.name);
+    console.log(form.name);
+
     if (form.name !== user.name || form.password !== user.password) {
       setResponse("Usuario/senha inválido");
       setTimeout(() => {

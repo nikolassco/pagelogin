@@ -6,7 +6,7 @@ const Home = () => {
 
   const logout = () => {
     localStorage.removeItem('user');
-    navigate('/login');
+    navigate('/register');
   }
   return (
     <div>
