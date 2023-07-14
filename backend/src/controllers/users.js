@@ -1,8 +1,7 @@
+require('dotenv').config();
 const knex = require("../connection");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const jwtKey = require("../jwtKey");
-
 
 const registerUser = async (req, res) => {
   const { name, password } = req.body;
@@ -40,15 +39,15 @@ const login = async (req, res) => {
   try {
     const user = await knex('users').where({ name });
     if (user.length < 1) {
-      return res.status(400).json({ message: 'Email ou senha inválido.' });
+      return res.status(400).json({ message: 'Nome ou senha inválido.' });
     }
 
     const validPassword = await bcrypt.compare(password, user[0].password);
     if (!validPassword) {
-      return res.status(400).json({ message: 'Email ou senha inválido.' });
+      return res.status(400).json({ message: 'Nome ou senha inválido.' });
     }
 
-    const token = jwt.sign({ id: user[0].id }, jwtKey, { expiresIn: '8h' });
+    const token = jwt.sign({ id: user[0].id }, process.env.JWTKEY, { expiresIn: '8h' });
 
     const { password: _, ...userLogged } = user[0];
 
